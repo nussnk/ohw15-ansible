@@ -13,12 +13,20 @@
       template:
         src: ../templates/nginx.conf.j2
         dest: /etc/nginx/nginx.conf
+      notify:
+        - start nginx
 
-    - name: starting nginx
+          #    - name: starting nginx
+          #      service:
+          #        name: nginx
+          #        state: started
+          #        enabled: yes
+
+
+  handlers:
+    - name: start nginx
       service:
         name: nginx
         state: started
         enabled: yes
-
-
 
